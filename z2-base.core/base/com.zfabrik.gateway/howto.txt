@@ -1,0 +1,7 @@
+How to Configure Gateway
+------------------------
+(See redmine.z2-environment.net for updated howto)
+
+1. In environment/webServer/jetty.xml use the Gateway Connector instead of the NIO Connector (check jetty.xml for comments)
+2. In environment/gateway/z.properties uncomment the state participation
+3. In com.zfabrik.gateway/web/z.properties uncomment the state participation

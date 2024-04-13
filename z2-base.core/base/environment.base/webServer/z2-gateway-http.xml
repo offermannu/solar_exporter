@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+  <Call name="addConnector">
+    <Arg>
+      <New id="httpConnector" class="org.eclipse.jetty.server.ServerConnector">
+        <Arg name="server"><Ref refid="Server" /></Arg>
+        <Arg name="acceptors" type="int"><Property name="jetty.http.acceptors" deprecated="http.acceptors" default="-1"/></Arg>
+        <Arg name="selectors" type="int"><Property name="jetty.http.selectors" deprecated="http.selectors" default="-1"/></Arg>
+        <Arg name="factories">
+          <Array type="org.eclipse.jetty.server.ConnectionFactory">
+            <Item>
+              
+              <!--  Use Gateway connection factory! -->
+              <New class="com.zfabrik.gateway.worker.GatewayConnectionFactory">
+                <Arg name="config"><Ref refid="httpConfig" /></Arg>
+              </New>
+              
+              
+            </Item>
+          </Array>
+        </Arg>
+
+        <Set name="idleTimeout"><Property name="jetty.http.idleTimeout" deprecated="http.timeout" default="30000"/></Set>
+        <Set name="acceptorPriorityDelta"><Property name="jetty.http.acceptorPriorityDelta" deprecated="http.acceptorPriorityDelta" default="0"/></Set>
+        <Set name="acceptQueueSize"><Property name="jetty.http.acceptQueueSize" deprecated="http.acceptQueueSize" default="0"/></Set>
+
+		<!-- gateway specific settings on worker node -->
+        <Set name="host">localhost</Set>
+        <!-- Use Gateway port setting!s -->
+        <Set name="port"><SystemProperty name="com.zfabrik.gateway.jetty.http.host"/></Set>
+
+      </New>
+    </Arg>
+  </Call>
+
+</Configure>

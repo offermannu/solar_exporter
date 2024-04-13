@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app id="RemoteRepoSupport" version="2.5"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<listener>
+		<listener-class>com.zfabrik.impl.hubcr.web.ContextInitListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>controller</filter-name>
+		<filter-class>com.zfabrik.impl.hubcr.web.Controller</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>controller</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>remoteServlet</servlet-name>
+		<servlet-class>com.zfabrik.impl.hubcr.web.RemoteRepositoryServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>remoteServlet</servlet-name>
+		<url-pattern>/repo/*</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>securedRepo</web-resource-name>
+			<url-pattern>/repo/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>hubcr_accessor</role-name>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>securedAdmin</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>realm</realm-name>
+	</login-config>
+
+
+</web-app>
+

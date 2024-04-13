@@ -1,0 +1,33 @@
+<?xml version="1.0"?><!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://www.eclipse.org/jetty/configure_10_0.dtd">
+
+<!-- 
+
+Configuration of path patterns to grant access to from non-localhost remote 
+addresses. This file is by default included into z2 Jetty configuration.
+
+By default, no Web application path is allowed access from non-localhost. 
+
+Add regex patterns into the array param of the "pattern" setter like so
+
+
+  <Array type="String">
+    <Item>^/$</Item>
+    <Item>/favicon.ico</Item>
+    <Item>^/abc($|/.*)</Item>
+  </Array>
+ 
+to specify some.  
+-->
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Call name="insertHandler">
+    <Arg>
+      <New id="NonLocalhostWhitelist" class="com.zfabrik.servletjsp.security.NonLocalhostWhitelist">
+        <Set name="patterns">
+          <Array type="String">
+          </Array>
+        </Set>
+      </New>
+    </Arg>
+  </Call>
+</Configure>

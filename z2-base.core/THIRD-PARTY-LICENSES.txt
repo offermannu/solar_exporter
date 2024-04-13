@@ -1,0 +1,7 @@
+Note: The z2-Environment distribution comes with a number of third party
+libraries that are subject to various open source licenses.
+
+Please check the licenses folder of your distribution for detailed license information by module and library.
+
+Also check the release pages of https://redmine.z2-environment.net/projects/z2-environment/wiki for release
+specific license information. 

@@ -1,0 +1,37 @@
+[
+	{
+		"type":		"file",
+		"name": 	"LOCAL",
+		"content":	""
+	},{
+		"type": 	"folder",
+		"name": 	"java",
+	},{
+		"type":		"file",
+		"name":     "java/z.properties",
+		"content":  "com.zfabrik.component.type=com.zfabrik.java\njava.privateReferences=\\\n\tcom.zfabrik.servletjsp\njava.publicReferences=\n"
+	},{
+		"type":		"src-folder", 
+		"name":		"java/src.api"
+	},{
+		"type":		"src-folder", 
+		"name":		"java/src.impl"
+	},{
+	    "type":     "folder", 
+	    "name":		"web"
+	},{
+	    "type":     "file", 
+	    "name":     "web/z.properties",
+	    "content":  "com.zfabrik.component.type=com.zfabrik.ee.webapp\nwebapp.path=<?> # TODO: add webapp-path, e.g: '/myapp'\nwebapp.requiredPaths=\n\nwebapp.server=environment/webServer\ncom.zfabrik.systemStates.participation=environment/webWorkerUp\n"	    
+	},{    
+		"type":		"folder", 
+		"name":		"web/WebContent"
+	},{
+	    "type":		"folder", 
+	    "name":     "web/WebContent/WEB-INF"
+	},{
+	    "type":     "file", 
+	    "name":     "web/WebContent/WEB-INF/web.xml",
+	    "content":  "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<web-app id=\"z2WebApp\" version=\"2.5\"\n	xmlns=\"http://java.sun.com/xml/ns/javaee\"\n	xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n	xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd\">\n\n\n\n</web-app>\n"
+	}    	    			
+]	

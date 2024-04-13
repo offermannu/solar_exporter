@@ -1,0 +1,182 @@
+On 12-04-07:
+
+Localhost Dell Vostro 3700 Core i5, non I/O bound simple JSP request
+
+w/o gateway
+-----------
+
+> ab2 -c 100 -n 10000 http://localhost:8080/hello/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        Jetty(6.1.22)
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /hello/
+Document Length:        407 bytes
+
+Concurrency Level:      100
+Time taken for tests:   4.395 seconds
+Complete requests:      10000
+Failed requests:        1301
+   (Connect: 0, Receive: 0, Length: 1301, Exceptions: 0)
+Write errors:           0
+Total transferred:      6336620 bytes
+HTML transferred:       4067238 bytes
+Requests per second:    2275.32 [#/sec] (mean)
+Time per request:       43.950 [ms] (mean)
+Time per request:       0.439 [ms] (mean, across all concurrent requests)
+Transfer rate:          1407.99 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    8 152.9      0    3007
+Processing:     0   23  21.4     14     373
+Waiting:        0   23  21.4     14     373
+Total:          0   31 155.2     14    3225
+
+Percentage of the requests served within a certain time (ms)
+  50%     14
+  66%     21
+  75%     34
+  80%     44
+  90%     54
+  95%     62
+  98%     73
+  99%     79
+ 100%   3225 (longest request)
+
+w/ gateway
+----------
+
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /hello/
+Document Length:        407 bytes
+
+Concurrency Level:      100
+Time taken for tests:   11.503 seconds
+Complete requests:      10000
+Failed requests:        1260
+   (Connect: 0, Receive: 0, Length: 1260, Exceptions: 0)
+Write errors:           0
+Total transferred:      6476674 bytes
+HTML transferred:       4067324 bytes
+Requests per second:    869.32 [#/sec] (mean)
+Time per request:       115.032 [ms] (mean)
+Time per request:       1.150 [ms] (mean, across all concurrent requests)
+Transfer rate:          549.84 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.3      0       3
+Processing:    32  108  65.0     99    1280
+Waiting:       13   95  63.9     86    1268
+Total:         36  108  65.0     99    1282
+
+Percentage of the requests served within a certain time (ms)
+  50%     99
+  66%    105
+  75%    110
+  80%    115
+  90%    130
+  95%    158
+  98%    188
+  99%    317
+ 100%   1282 (longest request)
+
+ 
+w/ gateway v2.1 (Streaming IO, Jetty 8)
+---------------------------------------
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        Jetty(8.1.4.v20120524)
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /hello/
+Document Length:        437 bytes
+
+Concurrency Level:      100
+Time taken for tests:   7.673 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Total transferred:      6270000 bytes
+HTML transferred:       4370000 bytes
+Requests per second:    1303.22 [#/sec] (mean)
+Time per request:       76.733 [ms] (mean)
+Time per request:       0.767 [ms] (mean, across all concurrent requests)
+Transfer rate:          797.97 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   12 189.8      0    3011
+Processing:     3   56  53.5     49    1449
+Waiting:        3   56  53.4     48    1449
+Total:          3   69 198.5     49    3200
+
+Percentage of the requests served within a certain time (ms)
+  50%     49
+  66%     58
+  75%     65
+  80%     70
+  90%     85
+  95%    109
+  98%    185
+  99%    274
+ 100%   3200 (longest request)
+
+ 

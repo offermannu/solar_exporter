@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app id="eclipsoid" version="2.5"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<servlet>
+		<servlet-name>ReferenceResolver</servlet-name>
+		<servlet-class>com.zfabrik.impl.eclipsoid.web.ReferenceResolver</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReferenceResolver</servlet-name>
+		<url-pattern>/references</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ApiImplJarsResolver</servlet-name>
+		<servlet-class>com.zfabrik.impl.eclipsoid.web.ApiImplJarsResolver</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ApiImplJarsResolver</servlet-name>
+		<url-pattern>/apijars</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SyncServer</servlet-name>
+		<servlet-class>com.zfabrik.impl.eclipsoid.web.SyncServer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SyncServer</servlet-name>
+		<url-pattern>/sync</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InfoRetriever</servlet-name>
+		<servlet-class>com.zfabrik.impl.eclipsoid.z2info.InfoRetriever</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InfoRetriever</servlet-name>
+		<url-pattern>/z2info/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>Update-Site</filter-name>
+		<filter-class>com.zfabrik.impl.eclipsoid.update.site.UpdateSiteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Update-Site</filter-name>
+		<url-pattern>/update/*</url-pattern>
+	</filter-mapping>
+	
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Eclipsoid development services</web-resource-name>
+			<url-pattern>/sync/*</url-pattern>
+			<url-pattern>/references/*</url-pattern>
+			<url-pattern>/apijars/*</url-pattern>
+			<url-pattern>/z2info/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>eclipsoid</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>realm</realm-name>
+	</login-config>
+	
+</web-app>

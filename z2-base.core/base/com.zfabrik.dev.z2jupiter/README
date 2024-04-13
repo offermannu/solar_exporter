@@ -1,0 +1,7 @@
+This is the JUnit5 (and later) supporting version of the 
+z2unit test support for the z2-Environment.
+
+Using this module does not require to reference z2unit, but
+if referenced from the test module z2Unit tests may be run 
+in conjunction with JUnit5 tests using the Jupiter Vintage
+engine.    

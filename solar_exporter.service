@@ -1,0 +1,10 @@
+[Unit]
+Description=Java Solar Logger Exporter for Prometheus
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network-online.target
+
+[Service]
+User=logger
+Restart=on-failure
+
+ExecStart=/home/logger/solar_exporter/start_solar_exporter.sh
