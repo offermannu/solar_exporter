@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.zfabrik.impl.synchronization","l":"HomeSynchronizer"},{"p":"com.zfabrik.impl.provider.resolver","l":"ProviderResolution"},{"p":"com.zfabrik.impl.provider.resolver","l":"ProviderResolver"}]

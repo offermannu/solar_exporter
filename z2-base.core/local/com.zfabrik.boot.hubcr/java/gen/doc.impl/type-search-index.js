@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.zfabrik.impl.hubcr","l":"ComponentRepositoryImpl"},{"p":"com.zfabrik.impl.hubcr","l":"ComponentRepositoryResource"},{"p":"com.zfabrik.impl.hubcr","l":"RemoteClient"}]

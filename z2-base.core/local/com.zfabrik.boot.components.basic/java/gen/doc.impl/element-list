@@ -1,0 +1,10 @@
+com.zfabrik.impl.compiler
+com.zfabrik.impl.components.any
+com.zfabrik.impl.components.files
+com.zfabrik.impl.components.java
+com.zfabrik.impl.components.java.jdt
+com.zfabrik.impl.components.main
+com.zfabrik.impl.components.processing
+com.zfabrik.impl.components.resourceProvider
+com.zfabrik.impl.components.states
+com.zfabrik.impl.components.synchronizer

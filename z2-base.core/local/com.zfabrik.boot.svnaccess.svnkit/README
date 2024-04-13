@@ -1,0 +1,19 @@
+If you want to use the SVNKit library for Subversion repository access,
+please download an SVNKit standalone distribution from
+
+www.svnkit.com
+
+ and extracts its library, the .jar files,
+into the subfolder
+
+java/bin.api/lib
+
+of this module. Make sure the jar files are in that folder rather
+than in deeper subfolder that may have been created during the 
+extraction. If present, the svn access module will pick up the SVNKit 
+classes from there. 
+
+Make sure the SVNKit licenses are appropriate to your use case!  
+
+Please also check the how-tos on the z2 wiki in case you run into 
+problems.
