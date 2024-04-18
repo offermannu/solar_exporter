@@ -76,7 +76,7 @@ public class Main {
                 }
 
             } catch (Exception e) {
-                CommonPrometheusCounters.countError();
+                MetricsExporter.countError();
                 LOGGER.log(Level.WARNING, "Failed status request for device " + device + " is ignored", e);
             }
         }

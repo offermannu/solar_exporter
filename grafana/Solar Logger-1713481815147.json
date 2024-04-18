@@ -137,7 +137,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 0
       },
@@ -314,8 +314,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 0
       },
       "id": 5,
@@ -424,6 +424,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMax": 50000,
             "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -471,19 +472,16 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 5
       },
       "id": 7,
-      "interval": "5m",
       "options": {
         "legend": {
-          "calcs": [
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
@@ -498,53 +496,42 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "solarlogger_total_dc_power{address=\"05\"}",
+          "expr": "avg_over_time(solarlogger_total_ac_power[15m])",
           "instant": false,
-          "legendFormat": "WR 1",
+          "legendFormat": "{{address}}",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "solarlogger_total_dc_power{address=\"02\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 2",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "solarlogger_total_dc_power{address=\"03\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 3",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "solarlogger_total_dc_power{address=\"04\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 4",
-          "range": true,
-          "refId": "D"
         }
       ],
       "title": "Leistungsverlauf [Watt]",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "02": 2,
+              "03": 3,
+              "04": 4,
+              "05": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -579,8 +566,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 5
       },
       "id": 8,
@@ -732,7 +719,7 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 12
       },
@@ -836,8 +823,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 12
       },
       "id": 12,
@@ -1071,7 +1058,7 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 19
       },
@@ -1176,8 +1163,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 19
       },
       "id": 16,
@@ -1411,7 +1398,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 26
       },
@@ -1500,7 +1487,6 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 24,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1514,14 +1500,14 @@
               }
             ]
           },
-          "unit": "h"
+          "unit": "m"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 6,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 26
       },
       "id": 11,
@@ -1548,9 +1534,9 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "solarlogger_daily_yield_hours{address=\"05\"}",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (solarlogger_total_ac_power > 0)[$__range:1m]\n        )\n    )\n)",
           "instant": false,
-          "legendFormat": "WR 1",
+          "legendFormat": "{{address}}",
           "range": true,
           "refId": "A"
         },
@@ -1560,46 +1546,7 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "solarlogger_daily_yield_hours{address=\"02\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 2",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "solarlogger_daily_yield_hours{address=\"03\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 3",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "solarlogger_daily_yield_hours{address=\"04\"}",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "WR 4",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "sum(solarlogger_daily_yield_hours)",
+          "expr": "sum(\n    sum by (address) (\n        count_over_time(\n            (solarlogger_total_ac_power > 0)[$__range:1m]\n        )\n    )\n)",
           "hide": false,
           "instant": false,
           "legendFormat": "Summe",
@@ -1608,6 +1555,32 @@
         }
       ],
       "title": "Betriebszeit heute",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "02": 2,
+              "03": 3,
+              "04": 4,
+              "05": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
       "type": "gauge"
     },
     {
@@ -1674,7 +1647,7 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 6,
+        "w": 7,
         "x": 0,
         "y": 32
       },
@@ -1740,8 +1713,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 18,
-        "x": 6,
+        "w": 17,
+        "x": 7,
         "y": 32
       },
       "id": 6,
@@ -2191,6 +2164,6 @@
   "timezone": "browser",
   "title": "Solar Logger",
   "uid": "cdhaua6az8ge8f",
-  "version": 4,
+  "version": 7,
   "weekStart": ""
 }

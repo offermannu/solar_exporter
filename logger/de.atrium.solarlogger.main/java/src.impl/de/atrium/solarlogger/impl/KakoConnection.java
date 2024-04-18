@@ -84,7 +84,7 @@ public class KakoConnection implements AutoCloseable {
 
         } finally {
             // log duration in Prometheus
-            CommonPrometheusCounters.countSSCDuration(
+            MetricsExporter.countSSCDuration(
                     kakoDevice.getAddress(),
                     Duration.between(tStart, Instant.now())
             );
@@ -130,7 +130,7 @@ public class KakoConnection implements AutoCloseable {
         public void serialEvent(SerialPortEvent event) {
             try {
                 SscEventType sscEventType = SscEventType.of(event.getEventType());
-                CommonPrometheusCounters.countSSCEvent(sscEventType.name());
+                MetricsExporter.countSSCEvent(sscEventType.name());
 
                 if (sscEventType == RXCHAR) {
                     // this is the standard Kako RS485 event type

@@ -65,7 +65,7 @@
       },
       "id": 1,
       "options": {
-        "includeVars": false,
+        "includeVars": true,
         "keepTime": false,
         "maxItems": 10,
         "query": "",
@@ -83,10 +83,57 @@
   ],
   "schemaVersion": 39,
   "tags": [
-    "mobile"
+    "home"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_SOLARLOGGER}"
+        },
+        "definition": "query_result(month(vector(time())))",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "month",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result(month(vector(time())))",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/[^0-9]*([0-9]+).*/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_SOLARLOGGER}"
+        },
+        "definition": "query_result(year(vector(time())))",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "year",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result(year(vector(time())))",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/[^0-9]*([0-9]+).*/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -98,6 +145,6 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "adim3kyq16mf4e",
-  "version": 5,
+  "version": 10,
   "weekStart": ""
 }

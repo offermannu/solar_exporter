@@ -70,7 +70,7 @@
       "includeVars": false,
       "keepTime": false,
       "tags": [
-        "mobile"
+        "home"
       ],
       "targetBlank": false,
       "title": "New link",
@@ -506,6 +506,7 @@
         "type": "prometheus",
         "uid": "${DS_SOLARLOGGER}"
       },
+      "description": "\"Betriebszeit\":  Leistung > 0 kW;\n\"Sonnenstunden\": Leistung > 20kW",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -525,34 +526,10 @@
                 "value": 80
               }
             ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Betriebszeit"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "h"
-              }
-            ]
           },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Ertrag"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "watth"
-              }
-            ]
-          }
-        ]
+          "unit": "m"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
@@ -561,7 +538,7 @@
         "y": 15
       },
       "hideTimeOverride": false,
-      "id": 5,
+      "id": 12,
       "interval": "1d",
       "options": {
         "colorMode": "value",
@@ -570,7 +547,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "sum"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -591,11 +568,24 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "solarlogger_daily_yield_hours{address=\"02\"}",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum (solarlogger_total_ac_power) > 0)[$__range:1m]\n        )\n    )\n)",
           "instant": false,
           "legendFormat": "Betriebszeit",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_SOLARLOGGER}"
+          },
+          "editorMode": "code",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 20000)[$__range:1m]\n        )\n    )\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Sonnenstunden",
+          "range": true,
+          "refId": "B"
         }
       ],
       "timeFrom": "7d",
@@ -824,6 +814,6 @@
   "timezone": "",
   "title": "Woche",
   "uid": "adhuylx34rh8gb",
-  "version": 87,
+  "version": 94,
   "weekStart": ""
 }

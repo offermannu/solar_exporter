@@ -1,0 +1,407 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_SOLARLOGGER",
+      "label": "solarlogger",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    },
+    {
+      "name": "VAR_YEAR",
+      "type": "constant",
+      "label": "Jahr",
+      "value": "2024",
+      "description": ""
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "barchart",
+      "name": "Bar chart",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.1"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "home"
+      ],
+      "targetBlank": false,
+      "title": "",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_SOLARLOGGER}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 250000,
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD.MM"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsZero",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "interval": "1d",
+      "options": {
+        "barRadius": 0,
+        "barWidth": 1,
+        "fullHighlight": false,
+        "groupWidth": 1,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "auto",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_SOLARLOGGER}"
+          },
+          "editorMode": "code",
+          "expr": "sum by (month) (\n((max_over_time(solarlogger_day_energie{month=~\"0?${month}\", month!=\"4\", year=\"${year}\"}[1d] offset -2d)) > 0) \nor\n(last_over_time(solarlogger_daily_gain{month=~\"0?${month}\", month!=\"4\", year=\"${year}\"}[1d] offset -1d))\n)\nor vector(0)",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Ertrag",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_SOLARLOGGER}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_SOLARLOGGER}"
+          },
+          "editorMode": "code",
+          "expr": "sum((max_over_time(solarlogger_day_energie{month=~\"0?4\",month!=\"4\",year=\"${year}\"}[1d] offset -1d)) > 0) \nor\nsum(last_over_time(solarlogger_daily_gain{month=~\"0?4\",month!=\"4\",year=\"${year}\"}[1d]))\n ",
+          "instant": false,
+          "interval": "1d",
+          "legendFormat": "Ertrag ${month:text} ${year}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "stat"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [
+    "mobile"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "April",
+          "value": "4"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Monat",
+        "multi": false,
+        "name": "month",
+        "options": [
+          {
+            "selected": false,
+            "text": "Januar",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "Februar",
+            "value": "2"
+          },
+          {
+            "selected": false,
+            "text": "März",
+            "value": "3"
+          },
+          {
+            "selected": true,
+            "text": "April",
+            "value": "4"
+          },
+          {
+            "selected": false,
+            "text": "Mai",
+            "value": "5"
+          },
+          {
+            "selected": false,
+            "text": "Juni",
+            "value": "6"
+          },
+          {
+            "selected": false,
+            "text": "Juli",
+            "value": "7"
+          },
+          {
+            "selected": false,
+            "text": "August",
+            "value": "8"
+          },
+          {
+            "selected": false,
+            "text": "September",
+            "value": "9"
+          },
+          {
+            "selected": false,
+            "text": "Oktober",
+            "value": "10"
+          },
+          {
+            "selected": false,
+            "text": "November",
+            "value": "11"
+          },
+          {
+            "selected": false,
+            "text": "Dezember",
+            "value": "12"
+          }
+        ],
+        "query": "Januar : 1, Februar : 2, März : 3, April : 4, Mai : 5, Juni : 6, Juli : 7, August : 8, September : 9, Oktober : 10, November : 11, Dezember : 12",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "description": "",
+        "hide": 2,
+        "label": "Jahr",
+        "name": "year",
+        "query": "${VAR_YEAR}",
+        "skipUrlSync": false,
+        "type": "constant",
+        "current": {
+          "value": "${VAR_YEAR}",
+          "text": "${VAR_YEAR}",
+          "selected": false
+        },
+        "options": [
+          {
+            "value": "${VAR_YEAR}",
+            "text": "${VAR_YEAR}",
+            "selected": false
+          }
+        ]
+      }
+    ]
+  },
+  "time": {
+    "from": "now/M",
+    "to": "now/M"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "browser",
+  "title": "Monat",
+  "uid": "edj48y2j4qigwd",
+  "version": 48,
+  "weekStart": ""
+}

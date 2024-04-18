@@ -70,7 +70,7 @@
       "includeVars": false,
       "keepTime": false,
       "tags": [
-        "mobile"
+        "home"
       ],
       "targetBlank": false,
       "title": "New link",
@@ -273,7 +273,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "off"
+              "mode": "dashed"
             }
           },
           "mappings": [],
@@ -287,8 +287,8 @@
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "#fff89921",
+                "value": 20000
               }
             ]
           },
@@ -548,6 +548,20 @@
               {
                 "id": "unit",
                 "value": "watt"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0,
+                        "text": "n/a"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
               }
             ]
           },
@@ -620,6 +634,136 @@
           "hide": false,
           "instant": false,
           "legendFormat": "Ertrag",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_SOLARLOGGER}"
+      },
+      "description": "\"Betriebszeit\":  Leistung > 0 kW;\n\"Sonnenstunden\": Leistung > 20kW",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Leistung"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watt"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0,
+                        "text": "n/a"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ertrag"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 20,
+          "valueSize": 20
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_SOLARLOGGER}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 0)[$__range:1m]\n        )\n    )\n)",
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "Betriebszeit",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_SOLARLOGGER}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 20000)[$__range:1m]\n        )\n    )\n)",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Sonnenstunden",
           "range": true,
           "refId": "B"
         }
@@ -826,6 +970,6 @@
   "timezone": "browser",
   "title": "Tag",
   "uid": "fdhuke7lldn9ca",
-  "version": 38,
+  "version": 47,
   "weekStart": ""
 }
