@@ -105,7 +105,7 @@
           "decimals": 2,
           "fieldMinMax": false,
           "mappings": [],
-          "unit": "percent"
+          "unit": "watth"
         },
         "overrides": []
       },
@@ -148,7 +148,7 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "sum by (address)(solarlogger_daily_yield)",
+          "expr": "solarlogger_daily_yield",
           "instant": false,
           "legendFormat": "WR {{address}}",
           "range": true,
@@ -159,12 +159,14 @@
       "title": "Beitrag Wechselrichter",
       "transformations": [
         {
+          "disabled": true,
           "id": "joinByLabels",
           "options": {
             "value": "address"
           }
         },
         {
+          "disabled": true,
           "id": "organize",
           "options": {
             "excludeByName": {},
@@ -206,7 +208,7 @@
           "decimals": 2,
           "fieldMinMax": false,
           "mappings": [],
-          "unit": "percent"
+          "unit": "none"
         },
         "overrides": []
       },
@@ -308,7 +310,7 @@
           "decimals": 2,
           "fieldMinMax": false,
           "mappings": [],
-          "unit": "percent"
+          "unit": "none"
         },
         "overrides": []
       },
@@ -592,6 +594,7 @@
   ],
   "schemaVersion": 39,
   "tags": [
+    "500",
     "mobile"
   ],
   "templating": {
@@ -607,6 +610,6 @@
   "timezone": "browser",
   "title": "Wechselrichter",
   "uid": "bdimzeyfhy2v4c",
-  "version": 18,
+  "version": 22,
   "weekStart": ""
 }

@@ -95,11 +95,9 @@
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisGridShow": true,
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 250000,
-            "fillOpacity": 80,
+            "fillOpacity": 66,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -120,8 +118,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
@@ -130,13 +132,13 @@
         "overrides": [
           {
             "matcher": {
-              "id": "byName",
-              "options": "Time"
+              "id": "byType",
+              "options": "time"
             },
             "properties": [
               {
                 "id": "unit",
-                "value": "time:DD.MM"
+                "value": "time:MMM"
               }
             ]
           },
@@ -169,12 +171,11 @@
         "y": 0
       },
       "id": 1,
-      "interval": "1d",
       "options": {
         "barRadius": 0,
         "barWidth": 1,
         "fullHighlight": false,
-        "groupWidth": 1,
+        "groupWidth": 0.76,
         "legend": {
           "calcs": [],
           "displayMode": "list",
@@ -185,14 +186,15 @@
         "showValue": "always",
         "stacking": "none",
         "text": {
-          "valueSize": 20
+          "valueSize": 22
         },
         "tooltip": {
-          "mode": "multi",
+          "mode": "single",
           "sort": "none"
         },
+        "xField": "Time",
         "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 100
+        "xTickLabelSpacing": 0
       },
       "targets": [
         {
@@ -201,13 +203,26 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "sum by (month) (\n((max_over_time(solarlogger_day_energie{month=~\"0?${month}\", month!=\"4\", year=\"${year}\"}[1d] offset -2d)) > 0) \nor\n(last_over_time(solarlogger_daily_gain{month=~\"0?${month}\", month!=\"4\", year=\"${year}\"}[1d] offset -1d))\n)\nor vector(0)",
+          "expr": "sum by (month)(\nsum_over_time(solarlogger_day_energie{month!=\"4\", year=\"${year}\"}[31d])\n) \nor last_over_time(solarlogger_daily_gain{month!=\"4\", year=\"${year}\"}[1d])\n\nor vector(0)",
           "hide": false,
           "instant": false,
-          "interval": "",
-          "legendFormat": "Ertrag",
+          "interval": "31d",
+          "legendFormat": "{{month}}",
           "range": true,
           "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "reduce",
+          "options": {
+            "includeTimeField": true,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
         }
       ],
       "type": "barchart"
@@ -274,10 +289,11 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "sum((max_over_time(solarlogger_day_energie{month=~\"0?4\",month!=\"4\",year=\"${year}\"}[1d] offset -1d)) > 0) \nor\nsum(last_over_time(solarlogger_daily_gain{month=~\"0?4\",month!=\"4\",year=\"${year}\"}[1d]))\n ",
+          "expr": "sum(\n    (max_over_time(solarlogger_day_energie{month!=\"4\",year=\"${year}\"}[1d] offset -1d) > 0)\n    or\n    last_over_time(solarlogger_daily_gain{month!=\"4\",year=\"${year}\"}[1d])\n)\n",
+          "hide": false,
           "instant": false,
           "interval": "1d",
-          "legendFormat": "Ertrag ${month:text} ${year}",
+          "legendFormat": "Ertrag ${year}",
           "range": true,
           "refId": "A"
         }
@@ -285,90 +301,14 @@
       "type": "stat"
     }
   ],
+  "refresh": "",
   "schemaVersion": 39,
   "tags": [
+    "400",
     "mobile"
   ],
   "templating": {
     "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "April",
-          "value": "4"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "label": "Monat",
-        "multi": false,
-        "name": "month",
-        "options": [
-          {
-            "selected": false,
-            "text": "Januar",
-            "value": "1"
-          },
-          {
-            "selected": false,
-            "text": "Februar",
-            "value": "2"
-          },
-          {
-            "selected": false,
-            "text": "März",
-            "value": "3"
-          },
-          {
-            "selected": true,
-            "text": "April",
-            "value": "4"
-          },
-          {
-            "selected": false,
-            "text": "Mai",
-            "value": "5"
-          },
-          {
-            "selected": false,
-            "text": "Juni",
-            "value": "6"
-          },
-          {
-            "selected": false,
-            "text": "Juli",
-            "value": "7"
-          },
-          {
-            "selected": false,
-            "text": "August",
-            "value": "8"
-          },
-          {
-            "selected": false,
-            "text": "September",
-            "value": "9"
-          },
-          {
-            "selected": false,
-            "text": "Oktober",
-            "value": "10"
-          },
-          {
-            "selected": false,
-            "text": "November",
-            "value": "11"
-          },
-          {
-            "selected": false,
-            "text": "Dezember",
-            "value": "12"
-          }
-        ],
-        "query": "Januar : 1, Februar : 2, März : 3, April : 4, Mai : 5, Juni : 6, Juli : 7, August : 8, September : 9, Oktober : 10, November : 11, Dezember : 12",
-        "queryValue": "",
-        "skipUrlSync": false,
-        "type": "custom"
-      },
       {
         "description": "",
         "hide": 2,
@@ -393,15 +333,15 @@
     ]
   },
   "time": {
-    "from": "now/M",
-    "to": "now/M"
+    "from": "now/y",
+    "to": "now/y"
   },
   "timepicker": {
     "hidden": true
   },
   "timezone": "browser",
-  "title": "Monat",
-  "uid": "edj48y2j4qigwd",
-  "version": 48,
+  "title": "Jahr",
+  "uid": "bdj4w5whq8000c",
+  "version": 14,
   "weekStart": ""
 }

@@ -12,12 +12,18 @@
       "name": "VAR_DELTA_DAYS",
       "type": "constant",
       "label": "delta_days",
-      "value": "1",
+      "value": "7",
       "description": ""
     }
   ],
   "__elements": {},
   "__requires": [
+    {
+      "type": "panel",
+      "id": "barchart",
+      "name": "Bar chart",
+      "version": ""
+    },
     {
       "type": "grafana",
       "id": "grafana",
@@ -34,12 +40,6 @@
       "type": "panel",
       "id": "stat",
       "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
       "version": ""
     }
   ],
@@ -85,6 +85,7 @@
         "type": "prometheus",
         "uid": "${DS_SOLARLOGGER}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -93,7 +94,7 @@
           "links": [
             {
               "title": "",
-              "url": "/d/${__dashboard.uid}﻿﻿/tag?from=${initial_from}&to=${initial_to}"
+              "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${initial_from}﻿&to=${initial_to}"
             }
           ],
           "mappings": [
@@ -129,6 +130,18 @@
           {
             "matcher": {
               "id": "byName",
+              "options": "heute"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD.MM.YY"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
               "options": "<<"
             },
             "properties": [
@@ -137,7 +150,7 @@
                 "value": [
                   {
                     "title": "",
-                    "url": "/d/${__dashboard.uid}﻿﻿/tag?from=${past_from}&to=${past_to}"
+                    "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${past_from}﻿&to=${past_to}"
                   }
                 ]
               }
@@ -154,7 +167,7 @@
                 "value": [
                   {
                     "title": "",
-                    "url": "/d/${__dashboard.uid}﻿﻿/tag?from=${future_from}&to=${future_to}"
+                    "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${future_from}﻿&to=${future_to}"
                   }
                 ]
               }
@@ -169,7 +182,7 @@
         "y": 0
       },
       "hideTimeOverride": true,
-      "id": 5,
+      "id": 8,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -184,7 +197,7 @@
         },
         "showPercentChange": false,
         "text": {
-          "titleSize": 25,
+          "titleSize": 20,
           "valueSize": 16
         },
         "textMode": "name",
@@ -213,7 +226,7 @@
           "expr": "0",
           "hide": false,
           "instant": false,
-          "legendFormat": "${__from:date:DD.MM.YY}",
+          "legendFormat": "${__from:date:DD.MM.}-${__to:date:DD.MM.}",
           "range": true,
           "refId": "B"
         },
@@ -231,7 +244,6 @@
           "refId": "C"
         }
       ],
-      "timeFrom": "1d",
       "type": "stat"
     },
     {
@@ -250,166 +262,17 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 21,
+            "axisSoftMin": 0,
+            "fillOpacity": 33,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "insertNulls": 3600000,
-            "lineInterpolation": "smooth",
-            "lineWidth": 1,
-            "pointSize": 1,
+            "lineWidth": 0,
             "scaleDistribution": {
               "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "dashed"
-            }
-          },
-          "mappings": [],
-          "max": 50000,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#fff89921",
-                "value": 20000
-              }
-            ]
-          },
-          "unit": "watt"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "gestern"
-            },
-            "properties": [
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              },
-              {
-                "id": "color",
-                "value": {
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 0,
-        "y": 1
-      },
-      "id": 1,
-      "interval": "15m",
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "sum(solarlogger_total_ac_power)",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "heute",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "sum(solarlogger_total_ac_power offset 24h)",
-          "hide": false,
-          "instant": false,
-          "interval": "",
-          "legendFormat": "gestern",
-          "range": true,
-          "refId": "B"
-        }
-      ],
-      "title": "Leistung",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_SOLARLOGGER}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 21,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": 3600000,
-            "lineInterpolation": "smooth",
-            "lineWidth": 1,
-            "pointSize": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
             },
             "thresholdsStyle": {
               "mode": "off"
@@ -437,24 +300,12 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "gestern"
+              "options": "Time"
             },
             "properties": [
               {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              },
-              {
-                "id": "color",
-                "value": {
-                  "mode": "fixed"
-                }
+                "id": "unit",
+                "value": "time:DD.MM"
               }
             ]
           }
@@ -464,21 +315,37 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 7
+        "y": 1
       },
+      "hideTimeOverride": true,
       "id": 3,
-      "interval": "15m",
       "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "text": {
+          "valueSize": 22
         },
         "tooltip": {
           "mode": "single",
           "sort": "none"
-        }
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
       "targets": [
         {
@@ -487,30 +354,24 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "expr": "sum(solarlogger_daily_yield)",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "heute",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "expr": "sum(solarlogger_daily_yield offset 24h)",
+          "expr": "sum(solarlogger_daily_yield offset -22h) or \nsum(last_over_time(solarlogger_daily_yield[1d:1m]offset -22h))",
           "hide": false,
           "instant": false,
-          "interval": "",
-          "legendFormat": "gestern",
+          "interval": "1d",
+          "legendFormat": "Ertrag ${__from:date:DD.MM.}-${__to:date:DD.MM.}",
           "range": true,
-          "refId": "B"
+          "refId": "A"
         }
       ],
-      "title": "Ertrag",
-      "type": "timeseries"
+      "title": "Ertrag über 7 Tage",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
     },
     {
       "datasource": {
@@ -520,10 +381,33 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "green",
             "mode": "fixed"
           },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 33,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
           "mappings": [],
+          "max": 250000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -536,77 +420,60 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "watth"
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "Leistung"
+              "options": "Time"
             },
             "properties": [
               {
                 "id": "unit",
-                "value": "watt"
-              },
-              {
-                "id": "mappings",
-                "value": [
-                  {
-                    "options": {
-                      "0": {
-                        "index": 0,
-                        "text": "n/a"
-                      }
-                    },
-                    "type": "value"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Ertrag"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "watth"
+                "value": "time:DD.MM"
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 2,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 8
       },
-      "id": 4,
+      "hideTimeOverride": false,
+      "id": 11,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "vertical",
-        "reduceOptions": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
           "calcs": [
-            "lastNotNull"
+            "mean",
+            "max",
+            "sum"
           ],
-          "fields": "",
-          "values": false
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showPercentChange": false,
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
         "text": {
-          "titleSize": 20,
-          "valueSize": 20
+          "valueSize": 22
         },
-        "textMode": "value_and_name",
-        "wideLayout": true
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
-      "pluginVersion": "10.4.1",
       "targets": [
         {
           "datasource": {
@@ -614,31 +481,25 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(solarlogger_total_ac_power)",
-          "format": "time_series",
-          "instant": false,
-          "legendFormat": "Leistung",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_SOLARLOGGER}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum(solarlogger_daily_yield)",
-          "format": "time_series",
+          "expr": "sum(solarlogger_daily_yield offset -22h) or \nsum(last_over_time(solarlogger_daily_yield[1d:1m]offset -22h)) or vector(0)",
           "hide": false,
           "instant": false,
-          "legendFormat": "Ertrag",
+          "interval": "1d",
+          "legendFormat": "Ertrag -1 Woche",
           "range": true,
-          "refId": "B"
+          "refId": "A"
         }
       ],
-      "type": "stat"
+      "timeShift": "7d",
+      "title": "Ertrag über 7 Tage",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
     },
     {
       "datasource": {
@@ -668,59 +529,22 @@
           },
           "unit": "m"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Leistung"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "watt"
-              },
-              {
-                "id": "mappings",
-                "value": [
-                  {
-                    "options": {
-                      "0": {
-                        "index": 0,
-                        "text": "n/a"
-                      }
-                    },
-                    "type": "value"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Ertrag"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "watth"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 2,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 15
       },
-      "id": 6,
+      "hideTimeOverride": false,
+      "id": 12,
+      "interval": "1d",
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
-        "orientation": "vertical",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -730,10 +554,10 @@
         },
         "showPercentChange": false,
         "text": {
-          "titleSize": 20,
-          "valueSize": 20
+          "titleSize": 22,
+          "valueSize": 22
         },
-        "textMode": "value_and_name",
+        "textMode": "auto",
         "wideLayout": true
       },
       "pluginVersion": "10.4.1",
@@ -744,9 +568,7 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 0)[$__range:1m]\n        )\n    )\n)",
-          "format": "time_series",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum (solarlogger_total_ac_power) > 0)[$__range:1m]\n        )\n    )\n)",
           "instant": false,
           "legendFormat": "Betriebszeit",
           "range": true,
@@ -758,9 +580,7 @@
             "uid": "${DS_SOLARLOGGER}"
           },
           "editorMode": "code",
-          "exemplar": false,
           "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 20000)[$__range:1m]\n        )\n    )\n)",
-          "format": "time_series",
           "hide": false,
           "instant": false,
           "legendFormat": "Sonnenstunden",
@@ -768,12 +588,14 @@
           "refId": "B"
         }
       ],
+      "timeFrom": "7d",
       "type": "stat"
     }
   ],
   "refresh": "",
   "schemaVersion": 39,
   "tags": [
+    "200",
     "mobile"
   ],
   "templating": {
@@ -849,7 +671,7 @@
           "type": "prometheus",
           "uid": "${DS_SOLARLOGGER}"
         },
-        "definition": "query_result($__to - $delta_millis)",
+        "definition": "query_result($__from - $delta_millis + $range_millis)",
         "hide": 2,
         "includeAll": false,
         "multi": false,
@@ -857,7 +679,7 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result($__to - $delta_millis)",
+          "query": "query_result($__from - $delta_millis + $range_millis)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -895,7 +717,7 @@
           "type": "prometheus",
           "uid": "${DS_SOLARLOGGER}"
         },
-        "definition": "query_result($__to + $delta_millis)",
+        "definition": "query_result($__from + $delta_millis + $range_millis)",
         "hide": 2,
         "includeAll": false,
         "multi": false,
@@ -903,7 +725,30 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result($__to + $delta_millis)",
+          "query": "query_result($__from + $delta_millis + $range_millis)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_SOLARLOGGER}"
+        },
+        "definition": "query_result($__to - $__from)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "range_millis",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__to - $__from)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -961,15 +806,15 @@
     ]
   },
   "time": {
-    "from": "now/d+6h",
-    "to": "now/d"
+    "from": "now-6d",
+    "to": "now"
   },
   "timepicker": {
     "hidden": true
   },
-  "timezone": "browser",
-  "title": "Tag",
-  "uid": "fdhuke7lldn9ca",
-  "version": 47,
+  "timezone": "",
+  "title": "Woche",
+  "uid": "adhuylx34rh8gb",
+  "version": 96,
   "weekStart": ""
 }
