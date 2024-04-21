@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="Add Grafana Dashboards">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_de_atrium_solarlogger_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_io_prometheus_client.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_jssc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InvalidMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InvalidMetricsExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InverterStatusMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InverterStatusMetricsExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/KakoTelegramType.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/KakoTelegramType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/MetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/MetricsExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/PowadorProtectMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/PowadorProtectMetricsExporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" afterDir="false" />
-    </list>
+    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="fix yield logging" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -349,7 +331,7 @@
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
-      <workItem from="1713630488864" duration="8574000" />
+      <workItem from="1713630488864" duration="8882000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -423,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713481892956</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix yield logging">
+      <option name="closed" value="true" />
+      <created>1713680869478</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713680869478</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -460,7 +450,8 @@
     <MESSAGE value="add z local" />
     <MESSAGE value="add z2-base" />
     <MESSAGE value="Add Grafana Dashboards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Grafana Dashboards" />
+    <MESSAGE value="fix yield logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix yield logging" />
   </component>
   <component name="Z2Environment">
     <option name="z2User" value="z*" />

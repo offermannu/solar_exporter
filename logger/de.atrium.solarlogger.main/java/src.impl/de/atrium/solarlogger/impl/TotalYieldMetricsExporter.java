@@ -33,10 +33,9 @@ public class TotalYieldMetricsExporter implements MetricsExporter, Consumer<Gaug
 
     public static final  String        HOME         = System.getProperty("user.home");
     private static final Path          YIELD_LOG    = Path.of(HOME, "ertrag.log");
-    private static final MessageFormat YIELD_FORMAT = new MessageFormat(
-            "{0}.{1}.{2} {3} {4,number,#}\n",
-            Locale.GERMAN
-    ); // [year].[month].[day] [addr] [yield]
+
+    // log file format: [year].[month].[day] [addr] [yield]
+    private static final MessageFormat YIELD_FORMAT = new MessageFormat("{0}.{1}.{2} {3} {4,number,#}\n");
 
     public static final TotalYieldMetricsExporter INSTANCE = new TotalYieldMetricsExporter();
 
