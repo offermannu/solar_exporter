@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/logger/de.atrium.solarlogger.main/de.atrium.solarlogger.main.iml" filepath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/de.atrium.solarlogger.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grafana/grafana.iml" filepath="$PROJECT_DIR$/grafana/grafana.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logger/io.prometheus.client/io.prometheus.client.iml" filepath="$PROJECT_DIR$/logger/io.prometheus.client/io.prometheus.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logger/jssc/jssc.iml" filepath="$PROJECT_DIR$/logger/jssc/jssc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/z2-base.core/z2-base.core.iml" filepath="$PROJECT_DIR$/z2-base.core/z2-base.core.iml" />
+    </modules>
+  </component>
+</project>

@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="add z2-base" />
+    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="Add Grafana Dashboards">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_de_atrium_solarlogger_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_io_prometheus_client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2api_jssc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InvalidMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InvalidMetricsExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InverterStatusMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/InverterStatusMetricsExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/KakoTelegramType.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/KakoTelegramType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/MetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/MetricsExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/PowadorProtectMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/PowadorProtectMetricsExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,26 +36,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "offermannu"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;offermannu&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/offermannu/solar_exporter.git",
-    "accountId": "ab57a551-b322-4768-a61b-45cb627091a5"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/offermannu/solar_exporter.git&quot;,
+    &quot;accountId&quot;: &quot;ab57a551-b322-4768-a61b-45cb627091a5&quot;
   }
-}]]></component>
+}</component>
   <component name="GroovyConsoleState">
     <option name="list">
       <list>
@@ -72,6 +90,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.CRC.executor": "Run",
     "Application.KakoTelegram.executor": "Run",
     "Application.KakoTelegramParser.executor": "Run",
@@ -82,6 +101,7 @@
     "Notification.DoNotAsk-Sourcesync": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Shell Script.Exporter.executor": "Run",
     "Shell Script.Unnamed.executor": "Run",
     "Shell Script.resolve.sh.executor": "Run",
@@ -96,7 +116,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.38256088",
-    "settings.editor.selected.configurable": "terminal",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,11 +130,14 @@
       <recent name="$PROJECT_DIR$/logger/io.prometheus.client/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grafana/Mobile" />
+      <recent name="$PROJECT_DIR$/grafana" />
+      <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main" />
+      <recent name="$PROJECT_DIR$/zLibResolver" />
       <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib" />
-      <recent name="$PROJECT_DIR$/logger/jssc/java/bin.api/lib" />
-      <recent name="$PROJECT_DIR$/logger/io.prometheus.client/java/bin/lib" />
-      <recent name="$PROJECT_DIR$/logger/io.prometheus.client" />
-      <recent name="$PROJECT_DIR$/logger/io.prometheus.client/untitled/java/bin/lib" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="de.atrium.solarlogger.impl.MetricsExporter" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="de.atrium.solarlogger.impl" />
@@ -130,7 +153,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Shell Script.z2">
+  <component name="RunManager" selected="Shell Script.sync solar">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -325,7 +348,8 @@
       <workItem from="1711828393567" duration="48803000" />
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
-      <workItem from="1712341236193" duration="31758000" />
+      <workItem from="1712341236193" duration="66546000" />
+      <workItem from="1713630488864" duration="8574000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -375,7 +399,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713008196409</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add z2-base">
+      <option name="closed" value="true" />
+      <created>1713170449517</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713170449517</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add Grafana Dashboards">
+      <option name="closed" value="true" />
+      <created>1713170478213</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713170478213</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Grafana Dashboards">
+      <option name="closed" value="true" />
+      <created>1713481892956</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713481892956</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -389,7 +437,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="133" />
+                  <entry key="Table.GitHub.CommitStatus.ColumnIdWidth" value="21" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="22" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -403,7 +459,8 @@
     <MESSAGE value="add z.jars" />
     <MESSAGE value="add z local" />
     <MESSAGE value="add z2-base" />
-    <option name="LAST_COMMIT_MESSAGE" value="add z2-base" />
+    <MESSAGE value="Add Grafana Dashboards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Grafana Dashboards" />
   </component>
   <component name="Z2Environment">
     <option name="z2User" value="z*" />

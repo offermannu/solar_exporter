@@ -7,8 +7,10 @@ package de.atrium.solarlogger.impl;
 
 import java.time.Duration;
 
+import io.prometheus.metrics.core.datapoints.GaugeDataPoint;
 import io.prometheus.metrics.core.metrics.Counter;
 import io.prometheus.metrics.core.metrics.Gauge;
+import io.prometheus.metrics.core.metrics.GaugeWithCallback;
 import io.prometheus.metrics.model.snapshots.Unit;
 public interface MetricsExporter {
 
@@ -122,12 +124,13 @@ public interface MetricsExporter {
                  .labelNames("address", "month", "year")
                  .register();
 
-    Gauge METRIC_DAY_ENERGIE =
-            Gauge.builder()
-                 .name("solarlogger_day_energie")
-                 .help("In contrast to solarlogger_daily_yield, solarlogger_daily_gain is logged once at the end of the day")
-                 .labelNames("address", "day", "month", "year")
-                 .register();
+    GaugeWithCallback METRIC_DAY_ENERGIE =
+            GaugeWithCallback.builder()
+                             .name("solarlogger_day_energie")
+                             .help("In contrast to solarlogger_daily_yield, solarlogger_daily_gain is logged once at the end of the day")
+                             .labelNames("address", "day", "month", "year")
+                             .callback(TotalYieldMetricsExporter.INSTANCE)
+                             .register();
 
     Counter SSC_EVT_COUNTER = Counter.builder()
                                      .name("solarlogger_serial_port_event")

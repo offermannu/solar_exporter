@@ -9,19 +9,19 @@ public enum KakoTelegramType {
 
     INVALID(
             t -> !t.isValid(),
-            new InvalidMetricsExporter()
+            InvalidMetricsExporter.INSTANCE
     ),
     INVERTER_STATUS(
             t->t.isValid() && t.getCmd()==KakoCommand.STATUS && t.getNoe()==20,
-            new InverterStatusMetricsExporter()
+            InverterStatusMetricsExporter.INSTANCE
     ),
     INVERTER_TOTAL_YIELD(
             t->t.isValid() && t.getCmd()==KakoCommand.TOTAL_YIELD && t.getNoe()==7,
-            new TotalYieldMetricsExporter()
+            TotalYieldMetricsExporter.INSTANCE
     ),
     POWADOR_PROTECT_STATUS(
             t->t.isValid() && t.getCmd()==KakoCommand.STATUS && t.getNoe()==11,
-            new PowadorProtectMetricsExporter()
+            PowadorProtectMetricsExporter.INSTANCE
     );
 
     private final Predicate<KakoTelegram> telegramPredicate;

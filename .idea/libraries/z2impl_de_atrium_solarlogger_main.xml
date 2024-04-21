@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="z2impl-de.atrium.solarlogger.main">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.dev.z2unit/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.junit/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.apache.commons/java" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="http://junit.sourceforge.net/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.dev.z2unit/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.junit/java" />
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.apache.commons/java" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.apache.commons/java" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.dev.z2unit/java" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.junit/java" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.apache.commons/java" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.dev.z2unit/java" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.junit/java" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="z2impl-io.prometheus.client">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/zLibResolver/.z2env-library/com.zfabrik.core.api/java" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -24,6 +24,10 @@ import static de.atrium.solarlogger.impl.KakoStatusTelegramPayload.PHASE_3_AC_CU
 import static de.atrium.solarlogger.impl.KakoStatusTelegramPayload.PHASE_3_AC_VOLTAGE;
 public class InverterStatusMetricsExporter implements MetricsExporter {
 
+    public static final MetricsExporter INSTANCE = new InverterStatusMetricsExporter();
+
+    private InverterStatusMetricsExporter() {}
+
     @Override
     public void exportMetrics(KakoTelegram telegram) {
         String address = telegram.getAddress();
