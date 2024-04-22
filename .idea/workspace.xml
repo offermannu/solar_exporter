@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="fix yield logging">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="Panels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,8 +120,8 @@
       <recent name="$PROJECT_DIR$/logger/io.prometheus.client/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/grafana/Mobile" />
       <recent name="$PROJECT_DIR$/grafana" />
+      <recent name="$PROJECT_DIR$/grafana/Mobile" />
       <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main" />
       <recent name="$PROJECT_DIR$/zLibResolver" />
       <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib" />
@@ -340,7 +339,7 @@
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
-      <workItem from="1713630488864" duration="11912000" />
+      <workItem from="1713630488864" duration="13543000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -430,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713681028996</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Panels">
+      <option name="closed" value="true" />
+      <created>1713722708150</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713722708150</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -468,7 +475,8 @@
     <MESSAGE value="add z2-base" />
     <MESSAGE value="Add Grafana Dashboards" />
     <MESSAGE value="fix yield logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix yield logging" />
+    <MESSAGE value="Panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Panels" />
   </component>
   <component name="Z2Environment">
     <option name="z2User" value="z*" />
