@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.MessageFormat;
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.Consumer;
@@ -32,10 +31,10 @@ public class TotalYieldMetricsExporter implements MetricsExporter, Consumer<Gaug
     private static final Logger LOGGER = Logger.getLogger(TotalYieldMetricsExporter.class.getName());
 
     public static final  String        HOME         = System.getProperty("user.home");
-    private static final Path          YIELD_LOG    = Path.of(HOME, "ertrag.log");
+    private static final Path          YIELD_LOG    = Path.of(HOME, "data/ertrag.log");
 
     // log file format: [year].[month].[day] [addr] [yield]
-    private static final MessageFormat YIELD_FORMAT = new MessageFormat("{0}.{1}.{2} {3} {4,number,#}\n");
+    private static final MessageFormat YIELD_FORMAT = new MessageFormat("{0}-{1}-{2} {3} {4,number,#}\n");
 
     public static final TotalYieldMetricsExporter INSTANCE = new TotalYieldMetricsExporter();
 
@@ -65,6 +64,9 @@ public class TotalYieldMetricsExporter implements MetricsExporter, Consumer<Gaug
         String year  = String.format("%04d", today.getYear());
 
         METRIC_DAILY_GAIN.labelValues(address, month, year).set(dailyYield);
+
+        // save to Postgres
+        new DailyYieldDAO().save(LocalDate.now(), Integer.parseInt(address), dailyYield);
     }
 
     @Override

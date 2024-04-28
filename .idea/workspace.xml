@@ -4,8 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="Panels">
+    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="ertrag.log">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib/postgresql-42.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logger/postgres/src/setup_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ertrag.log" beforeDir="false" afterPath="$PROJECT_DIR$/ertrag.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +106,11 @@
     "Shell Script.z2.executor": "Run",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "zulu-1.8",
-    "last_opened_file_path": "/Users/udoo/dev/solar_exporter",
+    "last_opened_file_path": "/Users/udoo/dev/solar_exporter/logger/de.atrium.solarlogger.main/java/bin.impl/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.38256088",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
@@ -115,16 +128,18 @@
       <recent name="de.atrium.solarlogger.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib" />
+      <recent name="$PROJECT_DIR$/logger/postgres/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/logger" />
       <recent name="$PROJECT_DIR$/logger/io.prometheus.client/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/logger" />
       <recent name="$PROJECT_DIR$/grafana" />
       <recent name="$PROJECT_DIR$/grafana/Mobile" />
       <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main" />
       <recent name="$PROJECT_DIR$/zLibResolver" />
-      <recent name="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="de.atrium.solarlogger.impl.MetricsExporter" />
@@ -339,7 +354,7 @@
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
-      <workItem from="1713630488864" duration="13543000" />
+      <workItem from="1713630488864" duration="41506000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -437,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713722708150</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ertrag.log">
+      <option name="closed" value="true" />
+      <created>1713773286701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713773286701</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -476,7 +499,8 @@
     <MESSAGE value="Add Grafana Dashboards" />
     <MESSAGE value="fix yield logging" />
     <MESSAGE value="Panels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Panels" />
+    <MESSAGE value="ertrag.log" />
+    <option name="LAST_COMMIT_MESSAGE" value="ertrag.log" />
   </component>
   <component name="Z2Environment">
     <option name="z2User" value="z*" />
