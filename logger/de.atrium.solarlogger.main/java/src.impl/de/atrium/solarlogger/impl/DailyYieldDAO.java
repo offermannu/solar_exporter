@@ -40,14 +40,16 @@ public class DailyYieldDAO {
     public void save(LocalDate date, int address, Double yield) {
         try (Connection con = DriverManager.getConnection(JDBC_URL, DB_PROPS)) {
             try (PreparedStatement insert = con.prepareStatement(
-                    "INSERT INTO daily_yield (day, inverter, yield) VALUES (?, ?, ?)")) {
+                    // UPSERT yield
+                    "INSERT INTO daily_yield (day, inverter, yield) VALUES (?, ?, ?) " +
+                    "ON CONFLICT (day, inverter) DO UPDATE SET yield=EXCLUDED.yield, updated_at=now()")) {
 
                 insert.setObject(1, date);
                 insert.setInt(2, address);
                 insert.setDouble(3, yield);
 
                 insert.execute();
-                LOGGER.info("Inserted (" + date + ", " + address + ", " + yield + ") into daily_yield table");
+                LOGGER.info("Upsert (" + date + ", " + address + ", " + yield + ") into daily_yield table");
             } catch (SQLException e) {
                 LOGGER.warning("IGNORE: Failed to insert yield because " + e);
             }

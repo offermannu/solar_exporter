@@ -6,7 +6,8 @@ CREATE TABLE public.daily_yield
     day        date             NOT NULL,
     inverter   integer          NOT NULL,
     yield      double precision NOT NULL,
-    created_at timestamp        NOT NULL default now()
+    created_at timestamp        NOT NULL default now(),
+    updated_at timestamp        NOT NULL default now()
 );
 
 ALTER TABLE public.daily_yield
@@ -31,8 +32,9 @@ CREATE ROLE readonly WITH
     NOCREATEROLE
     NOREPLICATION
     NOBYPASSRLS
-    -- Ich darf nur lesen:-(
     ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:Ir0WmlSXvhpTYAxF+leR0Q==$gUWw3976mpnf6FuZ+xgvdYB5IxInXsu5Lbijvtn4S2U=:Ft6PFA64pcv/v+FzjqSTx3Uw2f3JwXQ5sB5oNX9tlxc=';
+
+ALTER USER solarlogger WITH PASSWORD 'Ich darf nur lesen:-(';
 
 GRANT pg_read_all_data TO readonly;
 -- GRANT CONNECT ON DATABASE solarlogger TO readonly;

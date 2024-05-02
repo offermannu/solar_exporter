@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="ertrag.log">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/bin.impl/lib/postgresql-42.2.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/postgres/src/setup_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_de_atrium_solarlogger_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_io_prometheus_client.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/z2impl_jssc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="store daily yield into postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ertrag.log" beforeDir="false" afterPath="$PROJECT_DIR$/ertrag.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/TotalYieldMetricsExporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +95,7 @@
     "Shell Script.resolve.sh.executor": "Run",
     "Shell Script.sync solar.executor": "Run",
     "Shell Script.z2.executor": "Run",
+    "database.data.extractors.current.export.id": "Tab-separated (TSV)_id",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "zulu-1.8",
     "last_opened_file_path": "/Users/udoo/dev/solar_exporter/logger/de.atrium.solarlogger.main/java/bin.impl/lib",
@@ -113,7 +105,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.38256088",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "settings.editor.selected.configurable": "ssh.settings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -354,7 +346,7 @@
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
-      <workItem from="1713630488864" duration="41506000" />
+      <workItem from="1713630488864" duration="64237000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -460,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713773286701</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="store daily yield into postgres">
+      <option name="closed" value="true" />
+      <created>1714343864440</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714343864440</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -500,7 +500,8 @@
     <MESSAGE value="fix yield logging" />
     <MESSAGE value="Panels" />
     <MESSAGE value="ertrag.log" />
-    <option name="LAST_COMMIT_MESSAGE" value="ertrag.log" />
+    <MESSAGE value="store daily yield into postgres" />
+    <option name="LAST_COMMIT_MESSAGE" value="store daily yield into postgres" />
   </component>
   <component name="Z2Environment">
     <option name="z2User" value="z*" />

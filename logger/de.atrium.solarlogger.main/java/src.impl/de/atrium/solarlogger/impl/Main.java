@@ -21,6 +21,7 @@ public class Main {
     private static final int EXPORTER_PORT = 9494;
 
     public static void main(String[] args) throws Exception {
+        LOGGER.info("Starting Solar Logger v0.9");
 
         CounterWithCallback.builder()
                            .name("solarlogger_scrapes")
