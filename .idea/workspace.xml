@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="store daily yield into postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ertrag.log" beforeDir="false" afterPath="$PROJECT_DIR$/ertrag.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/logger/postgres/src/setup_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +343,7 @@
       <workItem from="1711993985280" duration="12839000" />
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
-      <workItem from="1713630488864" duration="64237000" />
+      <workItem from="1713630488864" duration="67679000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -460,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714343864440</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="store daily yield into postgres">
+      <option name="closed" value="true" />
+      <created>1714674921234</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714674921234</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

@@ -40,9 +40,10 @@ public class DailyYieldDAO {
     public void save(LocalDate date, int address, Double yield) {
         try (Connection con = DriverManager.getConnection(JDBC_URL, DB_PROPS)) {
             try (PreparedStatement insert = con.prepareStatement(
-                    // UPSERT yield
+                    // UPSERT yield - update only if new yield > previous yield
                     "INSERT INTO daily_yield (day, inverter, yield) VALUES (?, ?, ?) " +
-                    "ON CONFLICT (day, inverter) DO UPDATE SET yield=EXCLUDED.yield, updated_at=now()")) {
+                    "ON CONFLICT (day, inverter) DO UPDATE SET yield=EXCLUDED.yield, updated_at=now() "+
+                    "WHERE daily_yield.yield < EXCLUDED.yield")) {
 
                 insert.setObject(1, date);
                 insert.setInt(2, address);
