@@ -1,0 +1,271 @@
+[
+  {
+    "id": 18,
+    "uid": "edktskwwxjx8gf",
+    "title": "alt",
+    "uri": "db/alt",
+    "url": "/dashboards/f/edktskwwxjx8gf/alt",
+    "slug": "",
+    "type": "dash-folder",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 2,
+    "uid": "cdim2m1z0sagwe",
+    "title": "Mobile",
+    "uri": "db/mobile",
+    "url": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "slug": "",
+    "type": "dash-folder",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 20,
+    "uid": "bdl0ubsm720w0f",
+    "title": "Ertrag",
+    "uri": "db/ertrag",
+    "url": "/d/bdl0ubsm720w0f/ertrag",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 4,
+    "uid": "adim3kyq16mf4e",
+    "title": "Home",
+    "uri": "db/home",
+    "url": "/d/adim3kyq16mf4e/home",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "home"
+    ],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 15,
+    "uid": "ddjomssbaz668e",
+    "title": "Jahr",
+    "uri": "db/jahr",
+    "url": "/d/ddjomssbaz668e/jahr",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "400",
+      "mobile"
+    ],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 10,
+    "uid": "bdj4w5whq8000c",
+    "title": "Jahr (Prometheus)",
+    "uri": "db/jahr-prometheus",
+    "url": "/d/bdj4w5whq8000c/jahr-prometheus",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "400"
+    ],
+    "isStarred": false,
+    "folderId": 18,
+    "folderUid": "edktskwwxjx8gf",
+    "folderTitle": "alt",
+    "folderUrl": "/dashboards/f/edktskwwxjx8gf/alt",
+    "sortMeta": 0
+  },
+  {
+    "id": 14,
+    "uid": "edj48y2j4qipsql",
+    "title": "Monat",
+    "uri": "db/monat",
+    "url": "/d/edj48y2j4qipsql/monat",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "300",
+      "mobile"
+    ],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 9,
+    "uid": "edj48y2j4qigwd",
+    "title": "Monat (Prometheus)",
+    "uri": "db/monat-prometheus",
+    "url": "/d/edj48y2j4qigwd/monat-prometheus",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "300"
+    ],
+    "isStarred": false,
+    "folderId": 18,
+    "folderUid": "edktskwwxjx8gf",
+    "folderTitle": "alt",
+    "folderUrl": "/dashboards/f/edktskwwxjx8gf/alt",
+    "sortMeta": 0
+  },
+  {
+    "id": 17,
+    "uid": "adkts2qldkmiof",
+    "title": "Monat WR",
+    "uri": "db/monat-wr",
+    "url": "/d/adkts2qldkmiof/monat-wr",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 12,
+    "uid": "edjbpvrg9b0g0f",
+    "title": "Probleme",
+    "uri": "db/probleme",
+    "url": "/d/edjbpvrg9b0g0f/probleme",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 1,
+    "uid": "cdhaua6az8ge8f",
+    "title": "Solar Logger",
+    "uri": "db/solar-logger",
+    "url": "/d/cdhaua6az8ge8f/solar-logger",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 3,
+    "uid": "fdhuke7lldn9ca",
+    "title": "Tag",
+    "uri": "db/tag",
+    "url": "/d/fdhuke7lldn9ca/tag",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "100",
+      "mobile"
+    ],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 16,
+    "uid": "bdimzeyfhypsql",
+    "title": "Wechselrichter",
+    "uri": "db/wechselrichter",
+    "url": "/d/bdimzeyfhypsql/wechselrichter",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "500",
+      "mobile"
+    ],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 8,
+    "uid": "bdimzeyfhy2v4c",
+    "title": "Wechselrichter (Prometheus)",
+    "uri": "db/wechselrichter-prometheus",
+    "url": "/d/bdimzeyfhy2v4c/wechselrichter-prometheus",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "500"
+    ],
+    "isStarred": false,
+    "folderId": 18,
+    "folderUid": "edktskwwxjx8gf",
+    "folderTitle": "alt",
+    "folderUrl": "/dashboards/f/edktskwwxjx8gf/alt",
+    "sortMeta": 0
+  },
+  {
+    "id": 19,
+    "uid": "adl0aaddrt8n4f",
+    "title": "Wechselrichter Anteile",
+    "uri": "db/wechselrichter-anteile",
+    "url": "/d/adl0aaddrt8n4f/wechselrichter-anteile",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [],
+    "isStarred": false,
+    "sortMeta": 0
+  },
+  {
+    "id": 13,
+    "uid": "adhuylx34rhpsql",
+    "title": "Woche",
+    "uri": "db/woche",
+    "url": "/d/adhuylx34rhpsql/woche",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "200",
+      "mobile"
+    ],
+    "isStarred": false,
+    "folderId": 2,
+    "folderUid": "cdim2m1z0sagwe",
+    "folderTitle": "Mobile",
+    "folderUrl": "/dashboards/f/cdim2m1z0sagwe/mobile",
+    "sortMeta": 0
+  },
+  {
+    "id": 7,
+    "uid": "adhuylx34rh8gb",
+    "title": "Woche (Prometheus)",
+    "uri": "db/woche-prometheus",
+    "url": "/d/adhuylx34rh8gb/woche-prometheus",
+    "slug": "",
+    "type": "dash-db",
+    "tags": [
+      "200"
+    ],
+    "isStarred": false,
+    "folderId": 18,
+    "folderUid": "edktskwwxjx8gf",
+    "folderTitle": "alt",
+    "folderUrl": "/dashboards/f/edktskwwxjx8gf/alt",
+    "sortMeta": 0
+  }
+]
