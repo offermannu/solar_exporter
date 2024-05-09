@@ -49,10 +49,10 @@ public class DailyYieldDAO {
         try (Connection con = DriverManager.getConnection(JDBC_URL, DB_PROPS)) {
             try (PreparedStatement insert = con.prepareStatement(
                     // Insert first entry of new day:
-                    //  if this happens before midnight, (day, inverter) already exists and we do nothing
+                    //  if this happens before midnight, (day, inverter) already exists, and we do nothing
                     //  if this happens after midnight, a new entry for the new day is stored with yield = 0
-                    "INSERT INTO daily_yield (day, inverter, 0) " +
-                    "                 VALUES (?,   ?,        ?) " +
+                    "INSERT INTO daily_yield (day, inverter, yield) " +
+                    "                 VALUES (?,   ?,        0) " +
                     "                 ON CONFLICT (day, inverter) DO NOTHING")) {
 
                 insert.setObject(1, date);
