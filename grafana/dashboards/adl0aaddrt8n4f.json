@@ -1,0 +1,281 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "adkgwa4vo14aod"
+        },
+        "enable": false,
+        "iconColor": "super-light-yellow",
+        "mappings": {
+          "text": {
+            "source": "field",
+            "value": "titel"
+          },
+          "time": {
+            "source": "field",
+            "value": "from"
+          },
+          "timeEnd": {
+            "source": "field",
+            "value": "to"
+          }
+        },
+        "name": "Sommer",
+        "target": {
+          "editorMode": "code",
+          "format": "table",
+          "limit": 100,
+          "matchAny": false,
+          "rawQuery": true,
+          "rawSql": "select 1000*extract(epoch from (year || '-05-01T00:00:00+02')::timestamp with time zone)  as \"from\",\n       1000*extract(epoch from (year || '-10-01T00:00:00+02')::timestamp with time zone)  as \"to\",\n       'Sommer' as titel\n     from generate_series(\n          date_part('year', $__timeFrom()::timestamp with time zone)::integer,\n          date_part('year', $__timeTo()::timestamp with time zone)::integer,\n          1) year",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "tags": [],
+          "type": "dashboard"
+        }
+      },
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 2,
+  "id": 19,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "adkgwa4vo14aod"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-orange",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.66,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 172800000,
+            "lineInterpolation": "stepAfter",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "area"
+            }
+          },
+          "displayName": "Anteil %",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#0047b0",
+                "value": null
+              },
+              {
+                "color": "dark-blue",
+                "value": 0.1
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 0.2
+              },
+              {
+                "color": "blue",
+                "value": 0.3
+              },
+              {
+                "color": "light-blue",
+                "value": 0.4
+              },
+              {
+                "color": "#C0D8FF",
+                "value": 0.5
+              },
+              {
+                "color": "#e3eeff",
+                "value": 0.6
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "interval": "1d",
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.4.1",
+      "repeat": "WR",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "adkgwa4vo14aod"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": " select \n    day as time,\n    (sum(yield) filter (where inverter=$WR or $WR = 1 and inverter=5)) / sum(yield) as value\nFrom daily_yield \n  where day between date($__timeFrom() at time zone 'Europe/Berlin') and date($__timeTo() at time zone 'Europe/Berlin')\n  GROUP BY day\n  ORDER BY day \n\n  ",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Anteil Ertrag WR $WR zu Gesamtertrag",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "value": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "adkgwa4vo14aod"
+        },
+        "definition": "select generate_series(1,4,1)",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "WR",
+        "options": [],
+        "query": "select generate_series(1,4,1)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6y",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Wechselrichter Anteile",
+  "uid": "adl0aaddrt8n4f",
+  "version": 54,
+  "weekStart": ""
+}

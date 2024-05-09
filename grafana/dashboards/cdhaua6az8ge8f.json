@@ -1,0 +1,2135 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 1,
+                  "text": "off"
+                },
+                "1": {
+                  "index": 0,
+                  "text": "on"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "super-light-green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Fehler"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": []
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "super-light-green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 20,
+          "valueSize": 40
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "up",
+          "instant": false,
+          "legendFormat": "{{job}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "abs(idelta(solarlogger_error_total[$__range]))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Fehler",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Logger Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "2": {
+                  "index": 0,
+                  "text": "off"
+                },
+                "4": {
+                  "index": 1,
+                  "text": "on"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 4
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "01"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "02"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "03"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "04"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "05"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 17,
+        "x": 7,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 50
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_status{address=\"05\"}",
+          "instant": false,
+          "legendFormat": "WR 1 ({{type}})",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_status{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2 ({{type}})",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_status{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3 ({{type}})",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_status{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4 ({{type}})",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_status{address=\"01\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Powador Protect",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Geräte Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 50000,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 17,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 3600000,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 0,
+        "y": 5
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(solarlogger_total_ac_power[15m])",
+          "instant": false,
+          "legendFormat": "{{address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Leistungsverlauf [Watt]",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "02": 2,
+              "03": 3,
+              "04": 4,
+              "05": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-blue",
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 17,
+        "x": 7,
+        "y": 5
+      },
+      "id": 8,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_total_dc_power{address=\"05\"}",
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_total_dc_power{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_total_dc_power{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_total_dc_power{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_total_dc_power)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Aktuelle Leistung [Watt]",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 250000,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 17,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 3600000,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 0,
+        "y": 12
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"05\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"02\"}",
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Ertragsverlauf [Wh]",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-blue",
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 17,
+        "x": 7,
+        "y": 12
+      },
+      "id": 12,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"05\"}",
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "WR1"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_daily_yield)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Tagesertrag (Wh)",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 1"
+            },
+            "configRefId": "MAX_7_WR1",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 2"
+            },
+            "configRefId": "MAX_7_WR2",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 3"
+            },
+            "configRefId": "MAX_7_WR3",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 4"
+            },
+            "configRefId": "MAX_7_WR4",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "Summe"
+            },
+            "configRefId": "MAX_7_SUM",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 250000,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 17,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 0,
+        "y": 19
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"05\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"02\"}",
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "timeShift": "24h",
+      "title": "Ertragsverlauf [Wh]",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-blue",
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 17,
+        "x": 7,
+        "y": 19
+      },
+      "id": 16,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"05\"}",
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "WR1"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_daily_yield)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "timeShift": "24h",
+      "title": "Tagesertrag (Wh)",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 1"
+            },
+            "configRefId": "MAX_7_WR1",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 2"
+            },
+            "configRefId": "MAX_7_WR2",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 3"
+            },
+            "configRefId": "MAX_7_WR3",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "WR 4"
+            },
+            "configRefId": "MAX_7_WR4",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byName",
+              "options": "Summe"
+            },
+            "configRefId": "MAX_7_SUM",
+            "mappings": [
+              {
+                "fieldName": "max_7",
+                "handlerKey": "max"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 0,
+        "y": 26
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_board_temperature_celsius{address=\"05\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_board_temperature_celsius{address=\"02\"}",
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_board_temperature_celsius{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_board_temperature_celsius{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Board-Temparatur",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-blue",
+            "mode": "palette-classic"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 17,
+        "x": 7,
+        "y": 26
+      },
+      "id": 11,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (solarlogger_total_ac_power > 0)[$__range:1m]\n        )\n    )\n)",
+          "instant": false,
+          "legendFormat": "{{address}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n    sum by (address) (\n        count_over_time(\n            (solarlogger_total_ac_power > 0)[$__range:1m]\n        )\n    )\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Betriebszeit heute",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "02": 2,
+              "03": 3,
+              "04": 4,
+              "05": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "description": "Zeitdauer der Anfragen an die Wechselrichter ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.3,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0.25
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 0,
+        "y": 32
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_serial_port_speed_seconds)/5",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Avg Query Time",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Query Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-purple",
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 17,
+        "x": 7,
+        "y": 32
+      },
+      "id": 6,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "solarlogger_accumulated_yield{address=\"05\"}",
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "WR1"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "solarlogger_accumulated_yield{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "WR2"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "solarlogger_accumulated_yield{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "WR3"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "solarlogger_accumulated_yield{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "WR4"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(solarlogger_accumulated_yield)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Gesamtertrag",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "eps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 0,
+        "y": 39
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "rate(solarlogger_serial_port_event_total{event!=\"start\"}[$__rate_interval])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "{{event}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Serial Port Events",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-purple",
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 17,
+        "x": 7,
+        "y": 39
+      },
+      "id": 10,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_accumulated_yield_hours{address=\"05\"}",
+          "instant": false,
+          "legendFormat": "WR 1",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_accumulated_yield_hours{address=\"02\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 2",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_accumulated_yield_hours{address=\"03\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 3",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_accumulated_yield_hours{address=\"04\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WR 4",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_accumulated_yield_hours)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Summe",
+          "range": true,
+          "refId": "E"
+        }
+      ],
+      "title": "Gesamt Betriebszeit",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 46
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "min without (nature)(solarlogger_cos_phi) > 0.9",
+          "instant": false,
+          "legendFormat": "{{address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Cos phi",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "02": 2,
+              "03": 3,
+              "04": 4,
+              "05": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "02": "WR 02",
+              "03": "WR 03",
+              "04": "WR 04",
+              "05": "WR 01"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Solar Logger",
+  "uid": "cdhaua6az8ge8f",
+  "version": 9,
+  "weekStart": ""
+}

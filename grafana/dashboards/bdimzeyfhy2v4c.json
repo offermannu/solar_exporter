@@ -1,0 +1,566 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 8,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "home"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 2,
+          "fieldMinMax": false,
+          "mappings": [],
+          "unit": "watth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield",
+          "instant": false,
+          "legendFormat": "WR {{address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "1d",
+      "title": "Beitrag Wechselrichter",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "joinByLabels",
+          "options": {
+            "value": "address"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "02": 1,
+              "03": 2,
+              "04": 3,
+              "05": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 2,
+          "fieldMinMax": false,
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "1h",
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum by (address)(solarlogger_daily_yield)",
+          "instant": false,
+          "legendFormat": "WR {{address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "7d",
+      "title": "Beitrag Wechselrichter",
+      "transformations": [
+        {
+          "id": "joinByLabels",
+          "options": {
+            "value": "address"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "02": 1,
+              "03": 2,
+              "04": 3,
+              "05": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 2,
+          "fieldMinMax": false,
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 3,
+      "interval": "1d",
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum by (address)(solarlogger_daily_yield)",
+          "instant": false,
+          "legendFormat": "WR {{address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "1y",
+      "title": "Beitrag Wechselrichter",
+      "transformations": [
+        {
+          "id": "joinByLabels",
+          "options": {
+            "value": "address"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "02": 1,
+              "03": 2,
+              "04": 3,
+              "05": 0
+            },
+            "renameByName": {
+              "02": "WR 2",
+              "03": "WR 3",
+              "04": "WR 4",
+              "05": "WR 1"
+            }
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 13,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeAsLocal"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 4,
+      "interval": "20m",
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_daily_yield)",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "SUM",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "solarlogger_daily_yield",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "WR {{address}}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0,
+                  0
+                ],
+                "type": "gt"
+              },
+              "query": {
+                "params": []
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "downsampler": "mean",
+          "expression": "$B / $A",
+          "hide": false,
+          "refId": "C",
+          "type": "math",
+          "upsampler": "fillna"
+        }
+      ],
+      "timeFrom": "3d",
+      "title": "Beitrag Wechselrichter über die Zeit",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "SUM": true,
+              "WR 02": true,
+              "WR 03": true,
+              "WR 04": true,
+              "WR 05": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "C {__name__=\"solarlogger_daily_yield\", address=\"02\", instance=\"localhost:9494\", job=\"solarlogger\"}": 7,
+              "C {__name__=\"solarlogger_daily_yield\", address=\"03\", instance=\"localhost:9494\", job=\"solarlogger\"}": 8,
+              "C {__name__=\"solarlogger_daily_yield\", address=\"04\", instance=\"localhost:9494\", job=\"solarlogger\"}": 9,
+              "C {__name__=\"solarlogger_daily_yield\", address=\"05\", instance=\"localhost:9494\", job=\"solarlogger\"}": 6,
+              "SUM": 1,
+              "Time": 0,
+              "WR 02": 2,
+              "WR 03": 3,
+              "WR 04": 4,
+              "WR 05": 5
+            },
+            "renameByName": {
+              "C {__name__=\"solarlogger_daily_yield\", address=\"02\", instance=\"localhost:9494\", job=\"solarlogger\"}": "WR 02",
+              "C {__name__=\"solarlogger_daily_yield\", address=\"03\", instance=\"localhost:9494\", job=\"solarlogger\"}": "WR 03",
+              "C {__name__=\"solarlogger_daily_yield\", address=\"04\", instance=\"localhost:9494\", job=\"solarlogger\"}": "WR 04",
+              "C {__name__=\"solarlogger_daily_yield\", address=\"05\", instance=\"localhost:9494\", job=\"solarlogger\"}": "WR 01",
+              "WR 05": ""
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [
+    "500"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-3d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "browser",
+  "title": "Wechselrichter (Prometheus)",
+  "uid": "bdimzeyfhy2v4c",
+  "version": 24,
+  "weekStart": ""
+}

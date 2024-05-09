@@ -1,0 +1,795 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 7,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "home"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "title": "",
+              "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${initial_from}﻿&to=${initial_to}"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "-1": {
+                  "index": 0,
+                  "text": "-1 Tag"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "+1 Tag"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "heute"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD.MM.YY"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "<<"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "",
+                    "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${past_from}﻿&to=${past_to}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": ">>"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "",
+                    "url": "/d/${__dashboard.uid}﻿/tag?from=﻿${future_from}﻿&to=${future_to}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 20,
+          "valueSize": 16
+        },
+        "textMode": "name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "-1",
+          "instant": false,
+          "legendFormat": "<<",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "0",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "${__from:date:DD.MM.}-${__to:date:DD.MM.}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "+1",
+          "hide": false,
+          "instant": false,
+          "legendFormat": ">>",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 33,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 250000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD.MM"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 3,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "text": {
+          "valueSize": 22
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_daily_yield offset -22h) or \nsum(last_over_time(solarlogger_daily_yield[1d:1m]offset -22h))",
+          "hide": false,
+          "instant": false,
+          "interval": "1d",
+          "legendFormat": "Ertrag ${__from:date:DD.MM.}-${__to:date:DD.MM.}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Ertrag über 7 Tage",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 33,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 250000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:DD.MM"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "hideTimeOverride": false,
+      "id": 11,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "text": {
+          "valueSize": 22
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "sum(solarlogger_daily_yield offset -22h) or \nsum(last_over_time(solarlogger_daily_yield[1d:1m]offset -22h)) or vector(0)",
+          "hide": false,
+          "instant": false,
+          "interval": "1d",
+          "legendFormat": "Ertrag -1 Woche",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeShift": "7d",
+      "title": "Ertrag über 7 Tage",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "merge",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ddim1xf4n2olcd"
+      },
+      "description": "\"Betriebszeit\":  Leistung > 0 kW;\n\"Sonnenstunden\": Leistung > 20kW",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "hideTimeOverride": false,
+      "id": 12,
+      "interval": "1d",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 22,
+          "valueSize": 22
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum (solarlogger_total_ac_power) > 0)[$__range:1m]\n        )\n    )\n)",
+          "instant": false,
+          "legendFormat": "Betriebszeit",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ddim1xf4n2olcd"
+          },
+          "editorMode": "code",
+          "expr": "(\n    sum by (address) (\n        count_over_time(\n            (sum(solarlogger_total_ac_power) > 20000)[$__range:1m]\n        )\n    )\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Sonnenstunden",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "timeFrom": "7d",
+      "type": "stat"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [
+    "200"
+  ],
+  "templating": {
+    "list": [
+      {
+        "hide": 2,
+        "name": "delta_days",
+        "query": "7",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "604800000",
+          "value": "604800000"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($delta_days*24*60*60*1000)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "delta_millis",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($delta_days*24*60*60*1000)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1711922400000",
+          "value": "1711922400000"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__from - $delta_millis)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "past_from",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__from - $delta_millis)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1712609999999",
+          "value": "1712609999999"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__from - $delta_millis + $range_millis)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "past_to",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__from - $delta_millis + $range_millis)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1713132000000",
+          "value": "1713132000000"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__from + $delta_millis)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "future_from",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__from + $delta_millis)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1713819599999",
+          "value": "1713819599999"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__from + $delta_millis + $range_millis)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "future_to",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__from + $delta_millis + $range_millis)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "687599999",
+          "value": "687599999"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__to - $__from)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "range_millis",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__to - $__from)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1712643901770",
+          "value": "1712643901770"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__from)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "initial_from",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__from)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1713162301770",
+          "value": "1713162301770"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddim1xf4n2olcd"
+        },
+        "definition": "query_result($__to)",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "initial_to",
+        "options": [],
+        "query": {
+          "qryType": 3,
+          "query": "query_result($__to)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "Woche (Prometheus)",
+  "uid": "adhuylx34rh8gb",
+  "version": 101,
+  "weekStart": ""
+}
