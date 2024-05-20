@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96a1e30-1ccb-45c2-880d-7392dd6d5862" name="Changes" comment="Dashboards">
-      <change afterPath="$PROJECT_DIR$/grafana/dashboards/dashboards.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/logger/de.atrium.solarlogger.main/java/src.impl/de/atrium/solarlogger/impl/DailyYieldDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,50 +78,50 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.CRC.executor": "Run",
-    "Application.KakoTelegram.executor": "Run",
-    "Application.KakoTelegramParser.executor": "Run",
-    "HTTP Request.Grafana | #3 (1).executor": "Run",
-    "HTTP Request.Grafana | #3.executor": "Run",
-    "HTTP Request.Grafana | GET all datasources.executor": "Run",
-    "HTTP Request.Grafana | GET dashboard.executor": "Run",
-    "HTTP Request.Grafana | GET request with a header.executor": "Run",
-    "JUnit.FirstTest.countTest.executor": "Run",
-    "JUnit.FirstTest.executor": "Run",
-    "JUnit.FirstTest.measureTest.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Sourcesync": "Sourcesync Upload",
-    "Notification.DoNotAsk-Sourcesync": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.Exporter.executor": "Run",
-    "Shell Script.Unnamed.executor": "Run",
-    "Shell Script.resolve.sh.executor": "Run",
-    "Shell Script.sync solar.executor": "Run",
-    "Shell Script.z2.executor": "Run",
-    "database.data.extractors.current.export.id": "Tab-separated (TSV)_id",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "zulu-1.8",
-    "last_opened_file_path": "/Users/udoo/dev/solar_exporter",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.38256088",
-    "settings.editor.selected.configurable": "ssh.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.CRC.executor&quot;: &quot;Run&quot;,
+    &quot;Application.KakoTelegram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.KakoTelegramParser.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Grafana | #3 (1).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Grafana | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Grafana | GET all datasources.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Grafana | GET dashboard.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Grafana | GET request with a header.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FirstTest.countTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FirstTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FirstTest.measureTest.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Sourcesync&quot;: &quot;Sourcesync Upload&quot;,
+    &quot;Notification.DoNotAsk-Sourcesync&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.Exporter.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.resolve.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.sync solar.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.z2.executor&quot;: &quot;Run&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Tab-separated (TSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;zulu-1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/udoo/dev/solar_exporter&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38256088&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="de.atrium.solarlogger.impl" />
@@ -294,7 +294,8 @@
       <workItem from="1712073497524" duration="56185000" />
       <workItem from="1712341236193" duration="66546000" />
       <workItem from="1713630488864" duration="83745000" />
-      <workItem from="1714848473174" duration="39201000" />
+      <workItem from="1714848473174" duration="41496000" />
+      <workItem from="1715789790763" duration="10356000" />
     </task>
     <task id="LOCAL-00001" summary="project import">
       <option name="closed" value="true" />
@@ -512,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715247593359</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Dashboards">
+      <option name="closed" value="true" />
+      <created>1715264214222</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715264214222</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

@@ -38,11 +38,12 @@ public class DailyYieldDAO {
     }
 
     public void save(LocalDate date, int address, double yield) {
-        if (yield > 0) {
-            updateYield(date, address, yield);
-        } else {
-            insertNewDay(date, address);
-        }
+        upsertYield(date, address, yield);
+//        if (yield > 0) {
+//            updateYield(date, address, yield);
+//        } else {
+//            insertNewDay(date, address);
+//        }
     }
 
     private void insertNewDay(LocalDate date, int address) {
@@ -100,4 +101,38 @@ public class DailyYieldDAO {
             LOGGER.warning("IGNORE: Failed to access DB " + JDBC_URL + " because " + e);
         }
     }
+
+    private void upsertYield(LocalDate date, int address, double yield) {
+        try (Connection con = DriverManager.getConnection(JDBC_URL, DB_PROPS)) {
+            try (PreparedStatement insert = con.prepareStatement(
+                    // yield must always increase monotonically!
+                    // If this happens before midnight, the yield is updated in a monotonically increasing manner
+                    // If this happens after midnight, the update will not find a matching row and inserts a new row
+                    "INSERT INTO daily_yield (day, inverter, yield)" +
+                    "                 VALUES (?,   ?,        ?) " +
+                    "                 ON CONFLICT (day, inverter) " +
+                    "                 DO UPDATE SET yield=GREATEST(" +
+                    "                       EXCLUDED.yield, " +
+                    "                       (SELECT yield FROM daily_yield WHERE day=EXCLUDED.day AND inverter=EXCLUDED.inverter)" +
+                    "                 ), updated_at = now()")) {
+
+                insert.setObject(1, date);
+                insert.setInt(2, address);
+                insert.setDouble(3, yield);
+
+                if (insert.executeUpdate() > 0) {
+                    // new day or new yield > old yield
+                    LOGGER.info("Upsert (" + date + ", " + address + ", " + yield + ") in daily_yield table");
+                } else {
+                    // new yield <= old yield
+                    LOGGER.info("Skipped Upsert (" + date + ", " + address + ", " + yield + ") in daily_yield table");
+                }
+            } catch (SQLException e) {
+                LOGGER.warning("IGNORE: Failed to upsert yield because " + e);
+            }
+        } catch (SQLException e) {
+            LOGGER.warning("IGNORE: Failed to access DB " + JDBC_URL + " because " + e);
+        }
+    }
+
 }
