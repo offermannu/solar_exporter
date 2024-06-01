@@ -5,6 +5,14 @@
  */
 package de.atrium.solarlogger.impl;
 
+import org.postgresql.copy.CopyManager;
+import org.postgresql.core.BaseConnection;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -135,4 +143,29 @@ public class DailyYieldDAO {
         }
     }
 
+    public void dump(Path dest) {
+        LOGGER.info("Dumping table daily_yields into folder " + dest);
+        try (Connection con = DriverManager.getConnection(JDBC_URL, DB_PROPS);
+             Writer w = Files.newBufferedWriter(dest.resolve("daily_yield.csv"), StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
+
+            //new CopyManager((BaseConnection) con).copyOut("COPY daily_yield TO STDOUT CSV HEADER", w);
+            new CopyManager((BaseConnection) con).copyOut(
+                    "COPY (" +
+                    "  SELECT\n" +
+                    "      day as time,\n" +
+                    "      sum(yield) filter (where inverter=5) as \"WR 1\",\n" +
+                    "      sum(yield) filter (where inverter=2) as \"WR 2\",\n" +
+                    "      sum(yield) filter (where inverter=3) as \"WR 3\",\n" +
+                    "      sum(yield) filter (where inverter=4) as \"WR 4\",\n" +
+                    "      sum(yield)                           as \"ALL\"\n" +
+                    "  FROM daily_yield\n" +
+                    "  GROUP BY day\n" +
+                    "  ORDER BY day" +
+                    ") TO STDOUT CSV HEADER", w);
+
+            LOGGER.info("Done dumping table daily_yields into folder " + dest);
+        } catch (SQLException | IOException e) {
+            LOGGER.log(Level.WARNING, "IGNORE: Failed to dump yield to " + dest, e);
+        }
+    }
 }

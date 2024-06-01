@@ -71,10 +71,16 @@ public class TotalYieldMetricsExporter implements MetricsExporter, Consumer<Gaug
 
     @Override
     public void accept(GaugeWithCallback.Callback callback) {
+        // For testing:
+        //new DailyYieldDAO().dump(Path.of(HOME, "data"));
+
         LocalDate now = LocalDate.now();
         if (now.isAfter(yesterday)) {
-            // after midnight - publish daily yield
+            // after midnight:
+            // dump daily_yield
+            new DailyYieldDAO().dump(Path.of(HOME, "data"));
 
+            // publish daily yield
             String day   = String.format("%02d", yesterday.getDayOfMonth());
             String month = String.format("%02d", yesterday.getMonth().getValue());
             String year  = String.format("%04d", yesterday.getYear());
